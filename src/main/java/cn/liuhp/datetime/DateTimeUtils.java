@@ -3,6 +3,8 @@ package cn.liuhp.datetime;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -81,4 +83,15 @@ public class DateTimeUtils {
         }
         return  null;
     }
+    //----------------jdk1.8的方案 DateTimeFormatter线程是安全的，不可变类。需要去研究下？？？----------------
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(YYYY_MM_DD_HH_mm_ss);
+    /*时间转字符串格式*/
+    public static String formatDate4(LocalDateTime date) {
+        return formatter.format(date);
+    }
+    /*字符串转时间格式*/
+    public static LocalDateTime parse4(String dateNow) {
+        return LocalDateTime.parse(dateNow, formatter);
+    }
+
 }
