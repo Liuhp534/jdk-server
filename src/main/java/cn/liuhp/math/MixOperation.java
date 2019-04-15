@@ -22,6 +22,15 @@ public class MixOperation {
         //m2();
         //m3();
         //m4();
+        m5();
+    }
+    /*字符串和数字进行拼接，负数的话负数的符号依然保留*/
+    private static void m5() {
+        System.out.println("name" + -1);
+        System.out.println("name" + 1);
+        System.out.println("name" + +1);
+        int i1 = -1;
+        System.out.println("name" + ++ i1);//这里涉及到运算顺序的问题
     }
 
     /*java的基本数据类型中，boolean只有两种状态，默认值为false.取值范围是{true,false}，理论上占1bit，实际上：
