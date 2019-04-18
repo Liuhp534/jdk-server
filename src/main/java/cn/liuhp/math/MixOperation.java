@@ -1,5 +1,7 @@
 package cn.liuhp.math;
 
+import org.junit.Test;
+
 /**
  * @description: 混合运算的规则
  * 混合运算的时候，byte,short,char不会相互转换，都会自动将类型提升为int类型，其他类型进行混合运算时都是将小的数据类型提升为大的
@@ -20,9 +22,9 @@ public class MixOperation {
     public static void main(String[] args) {
         //m1();
         //m2();
-        //m3();
+        m3();
         //m4();
-        m5();
+        //m5();
     }
     /*字符串和数字进行拼接，负数的话负数的符号依然保留*/
     private static void m5() {
@@ -31,6 +33,7 @@ public class MixOperation {
         System.out.println("name" + +1);
         int i1 = -1;
         System.out.println("name" + ++ i1);//这里涉及到运算顺序的问题
+        System.out.println(1 + 1 + "name");//顺序问题 从左到右执行
     }
 
     /*java的基本数据类型中，boolean只有两种状态，默认值为false.取值范围是{true,false}，理论上占1bit，实际上：
@@ -53,7 +56,8 @@ public class MixOperation {
     /*Integer比较，Byte的比较
      * 总结：和常量比较不需要intValue这样的方法也行，会自动拆箱
      * */
-    private static void m3() {
+    @Test
+    public static void m3() {
         Integer i1 = 200;
         Integer i2 = new Integer(200);
         Integer i3 = 100;
@@ -65,6 +69,8 @@ public class MixOperation {
         System.out.println(i4 == 100);//true常量对比
         System.out.println(i4 == i6);//true常量对比
         System.out.println(i4.intValue() == 100);//true
+        Integer i7 = null;
+        System.out.println(i7 == 100);//会报错
         System.out.println("--------------------------------byte------------------------");
         Byte b1 = 100;
         Byte b2 = new Byte((byte) 100);
