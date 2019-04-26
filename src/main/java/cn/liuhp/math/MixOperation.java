@@ -26,6 +26,16 @@ public class MixOperation {
         //m4();
         //m5();
     }
+
+    private static void m6() {
+        int i1 = 100;
+        byte b1 = 100;
+        Byte b2 = new Byte(b1);
+        System.out.println(Integer.valueOf(b1));//说明可以自动转int
+        System.out.println(Integer.valueOf(b2));
+        //System.out.println(Byte.valueOf(1000));//报错
+        System.out.println(Byte.valueOf(i1 + ""));//转为字符串
+    }
     /*字符串和数字进行拼接，负数的话负数的符号依然保留*/
     private static void m5() {
         System.out.println("name" + -1);
