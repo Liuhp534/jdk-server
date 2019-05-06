@@ -1,6 +1,7 @@
 package cn.liuhp.list;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -22,5 +23,11 @@ public class SetAndList {
         Set<String> s1 = new HashSet<>();
         s1.add(null);//可以有null值
         System.out.println(s1.size());
+    }
+
+    private static void m2() {
+        Set<String> s1 = new HashSet<>();
+        s1.add("111");//可以有null值
+        Iterator<String> it = s1.iterator();
     }
 }

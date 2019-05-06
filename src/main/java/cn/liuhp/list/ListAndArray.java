@@ -1,8 +1,6 @@
 package cn.liuhp.list;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @description: list和数组
@@ -11,11 +9,31 @@ import java.util.List;
  */
 public class ListAndArray {
 
+    transient Object[] objects = {};
+
+    private class Inner {
+
+        private void m1() {
+            Object[] temps = ListAndArray.this.objects;//内部类访问外部类变量
+        }
+    }
 
     public static void main(String[] args) {
         //m1();
         //m2();
-        m3();
+        //m3();
+        m4();
+        ListAndArray test = new ListAndArray();
+    }
+
+    /*iterator linkedList调用是自己实现的那个内部类*/
+    private static void m4() {
+        List<String> list = new LinkedList<>();
+        list.add("111");
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
     }
 
     /*测试toString方法的实现 AbstractCollcetion里面*/
@@ -24,6 +42,7 @@ public class ListAndArray {
         list.add("11111");
         list.add(list);//还可以这样操作？
         System.out.println(list);
+        Iterator<Object> it = list.iterator();
     }
     /*
     * debug add /remove method
