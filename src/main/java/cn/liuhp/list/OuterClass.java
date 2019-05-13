@@ -45,6 +45,7 @@ public class OuterClass {
             System.out.println(age);//可以直接使用
             System.out.println(common);//可以直接使用
             System.out.println(OuterClass.this.common);//同名的需要：外部类名.this.属性/方法
+            System.out.println(OuterClass.this.age);//同名的需要：外部类名.this.属性/方法
         }
     }
 }
