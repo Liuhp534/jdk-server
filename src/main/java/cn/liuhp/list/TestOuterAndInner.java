@@ -14,6 +14,7 @@ public class TestOuterAndInner {
         TestOuterAndInner outer = new TestOuterAndInner();
         TestOuterAndInner.Bean1 bean1 = outer.new Bean1();//这里可以不需要TestOuterAndInner.
         bean1.I++;
+        bean1.hello();
         // 初始化Bean2
         TestOuterAndInner.Bean2 bean2 = new TestOuterAndInner.Bean2();//静态内部类加上两个TestOuterAndInner. 也行，主要是为了更好阅读
         bean2.J++;
@@ -24,8 +25,12 @@ public class TestOuterAndInner {
         //初始化bean4
         Bean.Bean4 bean4 = new Bean.Bean4();
     }
-    class Bean1{
+     class Bean1{//这里是private那么外部不能使用，只能内部使用
         public int I = 0;
+
+        public String hello() {
+            return "hello";
+        }
     }
 
     static class Bean2{
